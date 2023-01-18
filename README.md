@@ -26,4 +26,5 @@ Un investisseur est une personne qui possède une voiture et qui souhaite la met
 - L'investisseur peut créer, modifier et supprimer un compte
 - L'investisseur peut ajouter de nouvelles voitures qui seront disponibles en agence et prêtes à être louées après la confirmation de l'admin
 - L'investisseur peut modifier les informations d'une voiture qui la ajouter après la confirmation de l'admin
+- L'investisseur peut voir les réservations de ses voitures par les clients
 - L'investisseur peut supprimer une de ses voitures de l'application
