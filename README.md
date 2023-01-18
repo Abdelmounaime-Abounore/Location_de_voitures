@@ -1,6 +1,6 @@
 # Location_de_voitures
 ## À Propos ce projet:
-C'est une application web de gestion pour une agence de location des voitures, qui permet les clients de réserver des voitures en ligne et d'une maniére facile
+C'est une application web de gestion pour une agence de location des voitures, qui permet les clients de réserver des voitures en ligne d'une maniére facile, et il permet également à ceux qui possèdent une voiture d'y investir et la mettre à disposition à l'agence
 
 ## Admin:
 - En tant qu'administrateur, je peux ajouter des nouvelles voitures qui seront disponibles en agence et prêtes à être louées
