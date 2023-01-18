@@ -6,7 +6,7 @@ C'est une application web de gestion pour une agence de location des voitures, q
 - En tant qu'administrateur, je peux ajouter des nouvelles voitures qui seront disponibles en agence et prêtes à être louées
 - En tant qu'administrateur, je peux supprimer ou modifier les informations concernant la voiture à louer
 - En tant qu'administrateur, je peux voir une liste des investisseurs qui sont inscrits sur l'application
-- En tant qu'administrateur, Je peux modifier et confirmer ou réfuser les suggestions des investisseurs pour mettre leurs voitures à la disposition de l'agence  
+- En tant qu'administrateur, Je peux voir, modifier et confirmer ou réfuser les suggestions des investisseurs pour mettre leurs voitures à la disposition de l'agence  
 - En tant qu'administrateur, je peux voir une liste des utilisateurs de mon application
 - En tant qu'administrateur, je peux voir les réservations des clients
 - En tant qu'administrateur, je peux supprimer les comptes des utilisateurs de mon application
