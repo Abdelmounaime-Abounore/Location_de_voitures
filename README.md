@@ -23,7 +23,7 @@ Un investisseur est une personne qui possède une voiture et qui souhaite la met
 
 ## Client:
 
-- Le client peut créer un compte dans cette application
+- Le client peut créer un compte et se connecter à cette application
 - Le client peut modifier et supprimer son compte
 - Le client peut voir une liste contenant les voitures disponibles en agence ainsi que les informations concernant ces voitures
 - Le client peut réserver une voiture et définir le délai de location
