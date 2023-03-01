@@ -3,6 +3,7 @@
 C'est une application web de gestion pour une agence de location des voitures, qui permet les clients de réserver des voitures en ligne d'une maniére facile, et il permet également à ceux qui possèdent une voiture d'y investir et la mettre à disposition à l'agence
 
 ## Admin:
+- En tant qu'administrateur, je peux créer un compte et se connecter à cette application
 - En tant qu'administrateur, je peux ajouter des nouvelles voitures qui seront disponibles en agence et prêtes à être louées
 - En tant qu'administrateur, je peux supprimer ou modifier les informations concernant la voiture à louer
 - En tant qu'administrateur, je peux voir une liste des investisseurs qui sont inscrits sur l'application
