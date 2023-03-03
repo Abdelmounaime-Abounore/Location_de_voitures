@@ -5,22 +5,10 @@ C'est une application web de gestion pour une agence de location des voitures, q
 ## Admin:
 - En tant qu'administrateur, je peux créer un compte et se connecter à cette application
 - En tant qu'administrateur, je peux ajouter des nouvelles voitures qui seront disponibles en agence et prêtes à être louées
-- En tant qu'administrateur, je peux supprimer ou modifier les informations concernant la voiture à louer
-- En tant qu'administrateur, je peux voir une liste des investisseurs qui sont inscrits sur l'application
-- En tant qu'administrateur, Je peux voir, modifier et confirmer ou réfuser les suggestions des investisseurs pour mettre leurs voitures à la disposition de l'agence  
+- En tant qu'administrateur, je peux supprimer ou modifier les informations concernant la voiture à louer 
 - En tant qu'administrateur, je peux voir une liste des utilisateurs de mon application
 - En tant qu'administrateur, je peux voir les réservations des clients
 - En tant qu'administrateur, je peux supprimer les comptes des utilisateurs de mon application
-- En tant qu'administrateur, je peux supprimer les comptes des investiseurs de mon application
-
-## Investisseur: 
-
-Un investisseur est une personne qui possède une voiture et qui souhaite la mettre à disposition d'une agence.
-- L'investisseur peut créer, modifier et supprimer un compte
-- L'investisseur peut ajouter de nouvelles voitures qui seront disponibles en agence et prêtes à être louées après la confirmation de l'admin
-- L'investisseur peut modifier les informations d'une voiture qui la ajouter après la confirmation de l'admin
-- L'investisseur peut voir les réservations de ses voitures par les clients
-- L'investisseur peut supprimer une de ses voitures de l'application
 
 ## Client:
 
