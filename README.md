@@ -30,7 +30,7 @@ C'est une application web de gestion pour une agence de location des voitures, q
 - Le client peut voir ses informations de réservation
 - Le client peut modifier les informations de location avant de se présenter devant l'admin et confirmer la reservation par payer
 - Le client peut annuler la reservation avant la confirmation de l'admin
-- Le client peut ajouter un commentaire sur un offre de location
+- Le client peut ajouter un commentaire sur un offre de location d'une voiture
 - Le client peut voir les commentaires des autre clients sur un offre de location
 - Le client peut modifier et supprimer son commentaire
 
