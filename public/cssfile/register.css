@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+}
+
+#app{
+    height: 100%;
+}
+
+main {
+    background-image: url(../images/pexels-jagmeet-singh-1134857.jpg);
+    background-size: cover;
+    height: 149vh;
+}
+
+img {
+    width: 13%;
+    padding: 0px;
+}
