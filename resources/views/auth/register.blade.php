@@ -115,4 +115,29 @@
         </div>
     </div>
 </div>
+
+<style>
+html, body {
+    height: 100%;
+}
+
+nav {
+    background-color:rgb(166, 166, 164);
+    height:10%;
+}
+#app{
+    height: 100%;
+}
+
+main {
+    background-image: url(../images/pexels-jagmeet-singh-1134857.jpg);
+    background-size: cover;
+    height: 149vh;
+}
+
+img {
+    width: 13%;
+    padding: 0px;
+}
+</style>
 @endsection

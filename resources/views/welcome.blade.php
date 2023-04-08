@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -17,26 +18,85 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+                background-image: url(images/body-bg.jpg);
+                background-size: cover; 
+                color: white;
+
+            }
+            .div-img img {                
+                height:85px; 
+                width:80px;
+                background-color: rgb(0 0 0 / 29%);
+                border-radius: 30%;
+            }
+            .nav-links {
+                height:90px;
+            }
+            .nav-links a {
+                font-weight: bold;
+                border-radius: 3px;
+            }
+            .nav-links a:hover {
+                background-color: yellow;
+            }
+            .cover{
+                margin: auto;
+                margin-top: 20px;
+                height: 370px;
+                width: 90%;
+                background-image: url(images/landing-page.png);
+                background-color: black;
+                background-size: cover;
+                background-position: center;
+                border-radius: 10px;
+            }
+            .line {
+                width: 50px; 
+                height: 6px; 
+                background-color: #5a0bf7; 
+                margin: 20px 0; 
+            }
+
+            .about {
+                margin-top: 70px;
+            }
+            .about-img {
+                height: 70%;
+                border-radius: 8px;
+            }
+            .register-link {
+                font-size: 24px;
+                border-radius: 7px;
+                background-color: rgb(115, 195, 115);
+            }
+            .register-link:hover {
+                background-color: yellow;
             }
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+        {{-- <div class="flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0" style="height: 10px"> --}}
+        <div class="d-flex justify-content-between" style="width: 95%; margin:auto;">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <div class="div-img">
+                    <img src="images/logo.png" alt="Logo" class="p-1">
                 </div>
-            @endif
+                @if (Route::has('login'))
+                    <div class="nav-links hidden top-0 right-0 px-6 d-flex align-items-center">
+                        @auth
+                            <a href="{{ url('/home') }}" class="text-sm text-white-500 text-decoration-none p-2">Home</a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-sm text-white-500 text-decoration-none p-2">Log in</a>
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-white-500 text-decoration-none p-2">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+            </a> 
+        </div>
+            {{-- <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
                         <g clip-path="url(#clip0)" fill="#EF3B2D">
@@ -126,6 +186,53 @@
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
+            </div>
+        </div> --}}
+        <div class="cover d-flex flex-column justify-content-center align-items-center text-center">
+            <h1 class="text-light font-weight-bold">Castilla Car Rental</h1>
+            <div class="line"></div>
+            <h3 class="text-light">Car rental agency in Tangier, offering convenient services at affordable prices</h3>
+        </div>
+        <div class="about d-flex flex-column justify-content-end flex-lg-row justify-content-between w-75 mx-auto" style="margin-bottom: 10px">
+            <div class="w-100 px-5 mb-4 mb-lg-0 m-auto" style="background-color: gray; border-radius: 6px; opacity: 70%">
+                <h1>About</h1>
+                <div class="line"></div>
+                <p>
+                    We are Castilla Car Rent in Tangier-Morocco most distinguished rental car company.
+                    As we are not affiliated with any specific automaker, we are able to provide a variety of vehicle makes and models for customers to rent.
+                    Rather than let vehicles age, we also replace our most popular passenger vehicles every few years.
+                    Replacing used vehicles eliminates uncomfortable wear and tear, and reduces the risk of breakdown and other inconveniences to our customers.
+                </p>
+            </div>
+            <div class="w-100 px-5 my-5">
+                <img src="images/about.jpg" alt="about.jpg" class="about-img w-100">
+            </div>
+        </div>
+        <div class="my-5">
+            <div class="my-5">
+                <div class="text-center" style="margin-bottom: 20px;">
+                    <h2>Services</h2>
+                </div>
+                <div class="line mx-auto"></div>
+            </div>
+            <div class=" d-flex flex-column justify-content-center flex-md-row justify-content-between w-75 m-auto text-info">
+                <div class="bg-light mx-3 my-3 p-3" style="border-radius: 7px">
+                    <p> You can book a rental car before embarking on your trip to this beautiful country. We compare offers from different rental agencies in Morocco and find the best rates for rental cars</p>
+                </div>
+                <div class="bg-light mx-3 my-3 p-3" style="border-radius: 7px">
+                    <p> Castilla Car rental companies are always ready to help you choose the perfect car for your itinerary. Our booking engine finds the lowest prices from most car rental providers</p>
+                </div>
+                <div class="bg-light mx-3 my-3 p-3" style="border-radius: 7px">
+                    <p> For easy transport around the country, car rental offers safe and efficient travel While at it, travelers will sample the amazing cuisine in Morocco’s finest hotels and restaurants.</p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column align-items-center my-5 mx-4">
+            <div class="bg-primary p-2" style="margin-bottom: 20px; opacity:50%; border-radius: 7px">
+                <h2>Create Your Account, and Rent your best Car</h2>
+            </div>
+            <div>
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-white-500 text-decoration-none p-2 register-link">Register</a>
             </div>
         </div>
     </body>
