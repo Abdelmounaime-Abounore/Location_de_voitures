@@ -122,8 +122,8 @@ html, body {
 }
 
 nav {
-    background-color:rgb(166, 166, 164);
-    height:10%;
+    background-color:rgb(192, 192, 186);
+    height:14%;
 }
 #app{
     height: 100%;
@@ -136,8 +136,8 @@ main {
 }
 
 img {
-    width: 13%;
-    padding: 0px;
+    height:85px; 
+    width:80px;
 }
 </style>
 @endsection

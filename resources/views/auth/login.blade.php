@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8" style="margin-top: 100px;">
             <h1 class="py-3 text-white">Login</h1>
             <div class="card py-5" style="opacity: 87%">
                 <div class="card-body">
@@ -71,30 +71,13 @@
 </div>
 
 <style>
-html, body {
-    height: 100%;
-    overflow-y: hidden;
-}
-
-nav {
-    background-color:rgb(192, 192, 186);
-    height:10%;
-}
-
-#app{
-    height: 100%;
-}
-
+    nav {
+        background-color: rgb(78 78 74);
+    }
 main {
-    opacity: 85%;
     background-image: url(../images/login-bg.jpg);
     background-size: cover;
     height: 100vh;
-}
-
-img {
-    width: 13%;
-    padding: 0px;
 }
 </style>
 @endsection
