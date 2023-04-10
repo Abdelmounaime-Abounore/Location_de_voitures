@@ -126,8 +126,3 @@ main {
   font-weight: bold;
 }
 </style>
-@section('content')
-<div class="container">
-    
-</div>
-@endsection
