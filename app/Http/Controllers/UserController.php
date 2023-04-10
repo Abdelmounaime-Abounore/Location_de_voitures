@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
+
 
 class UserController extends Controller
 {
@@ -68,9 +72,32 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . Auth::user()->id,
+            'password' => 'required|string|min:8|confirmed',
+            'driving_license_photo' => 'required|mimes:jpeg,png,jpg,svg',
+            'address' => 'required|string|max:255',
+            'CIN' => 'required|string|max:6',
+        ]);
+
+        $user = Auth::user();
+      
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->password = Hash::make($validatedData['password']);
+
+        $imgName = $request['driving_license_photo']->getClientOriginalName();
+        $request['driving_license_photo']->move(public_path('driving_license_photos'), $imgName);
+        $user->driving_license_photo = $imgName;
+
+        $user->address = $validatedData['address'];
+        $user->CIN = $validatedData['CIN'];
+        $user->save();
+
+        return view('home');
     }
 
     /**

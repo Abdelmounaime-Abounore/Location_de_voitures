@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form class="w-75 m-auto my-5" method="POST" action="" enctype="multipart/form-data">
+<form class="w-75 m-auto my-5" method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
     @csrf
     <div class="row mb-3 my-3">
         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
@@ -115,5 +115,6 @@
     }
     .license-photo img {
         width: 100%;
+        border-radius: 7%;
     }
 </style>
