@@ -1,92 +1,32 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h3 class="text-center text-light w-100 my-5 m-auto p-3 fw-bold">Welcome To <span class="text-primary">Castilla Rent Car</span>, Browse our offers and find what suits you best</h3>">
+    <h3 class="text-center text-light w-100 my-5 m-auto p-3 fw-bold">Welcome To <span class="text-primary">Castilla Rent Car</span>, Browse our offers and find what suits you best</h3>
     <div class="row row-cols-1 row-cols-lg-2 g-3">
-        <div class="col">
-            <div class="card bg-light m-1">
-                <div class="d-flex justify-content-around p-2">
-                    <div class="w-50">
+        @foreach ($cars as $car)
+            <div class="col p-2" style="height:425px">
+                <div class="card bg-light m-1 p-3 h-100">
+                    <div class="w-50 d-flex p-2">
                         <img src="images/clio.jpg" alt="clio">
+                        <img src="images/in1.jpg" alt="">
                     </div>
-                    <div style="height:130px">
-                        <p> <span> Renault Clio, Model 2019 </p>
-                        <p class="text-danger fw-bold"> Price: 250 MAD/ Day</p>
+                    <div class="">
+                        <p> <span> {{$car->brand}}, Model {{$car->model}} </p>
+                        <p class="text-danger fw-bold"> Price: {{$car->price}} MAD/ Day</p>
+                    </div>
+                    <div>
+                        <p class=""> <span> Description: </span> <br>
+                            {{$car->description}}<br><br>
+                        </p>
                     </div>
                 </div>
-                <p class="my-4 p-3"> <span> Description: </span> <br>
-                    Engine type: 1.2-liter turbocharged four-cylinder engine
-                    Fuel efficiency: Estimated 48 MPG on the highway and 37 MPG in the city
-                    Transmission: 5-speed manual
-                    Seating capacity: 5 passengers
-                    Cargo capacity: 12.3 cubic feet of cargo space
-                    Safety features: Anti-lock brakes (ABS), electronic stability control, hill-start assist, front and side airbags, rearview camera, and parking sensors <br><br>
-                </p>
             </div>
-        </div>
-        <div class="col">
-            <div class=" card bg-light m-1">
-                <div class="d-flex justify-content-around p-2">
-                    <div class="w-50">
-                        <img src="images/clio.jpg" alt="clio">
-                    </div>
-                    <div style="height:130px">
-                        <p> <span> Renault Clio, Model 2019 </p>
-                        <p class="text-danger fw-bold"> Price: 250 MAD/ Day</p>
-                    </div>
-                </div>
-                <p class="my-4 p-3"> <span> Description: </span> <br>
-                    Engine type: 1.2-liter turbocharged four-cylinder engine
-                    Fuel efficiency: Estimated 48 MPG on the highway and 37 MPG in the city
-                    Transmission: 5-speed manual
-                    Seating capacity: 5 passengers
-                    Cargo capacity: 12.3 cubic feet of cargo space
-                    Safety features: Anti-lock brakes (ABS), electronic stability control, hill-start assist, front and side airbags, rearview camera, and parking sensors <br><br>
-                </p>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card bg-light m-1">
-                <div class="d-flex justify-content-around p-2">
-                    <div class="w-50">
-                        <img src="images/clio.jpg" alt="clio">
-                    </div>
-                    <div style="height:130px">
-                        <p> <span> Renault Clio, Model 2019 </p>
-                        <p class="text-danger fw-bold"> Price: 250 MAD/ Day</p>
-                    </div>
-                </div>
-                <p class="my-4 p-3"> <span> Description: </span> <br>
-                    Engine type: 1.2-liter turbocharged four-cylinder engine
-                    Fuel efficiency: Estimated 48 MPG on the highway and 37 MPG in the city
-                    Transmission: 5-speed manual
-                    Seating capacity: 5 passengers
-                    Cargo capacity: 12.3 cubic feet of cargo space
-                    Safety features: Anti-lock brakes (ABS), electronic stability control, hill-start assist, front and side airbags, rearview camera, and parking sensors <br><br>
-                </p>
-            </div>
-        </div>
-        <div class="col">
-            <div class=" card bg-light m-1">
-                <div class="d-flex justify-content-around p-2">
-                    <div class="w-50">
-                        <img src="images/clio.jpg" alt="clio">
-                    </div>
-                    <div style="height:130px">
-                        <p> <span> Renault Clio, Model 2019 </p>
-                        <p class="text-danger fw-bold"> Price: 250 MAD/ Day</p>
-                    </div>
-                </div>
-                <p class="my-4 p-3"> <span> Description: </span> <br>
-                    Engine type: 1.2-liter turbocharged four-cylinder engine
-                    Fuel efficiency: Estimated 48 MPG on the highway and 37 MPG in the city
-                    Transmission: 5-speed manual
-                    Seating capacity: 5 passengers
-                    Cargo capacity: 12.3 cubic feet of cargo space
-                    Safety features: Anti-lock brakes (ABS), electronic stability control, hill-start assist, front and side airbags, rearview camera, and parking sensors <br><br>
-                </p>
-            </div>
-        </div>
+        @endforeach    
+    </div>
+    <div class="w-50 m-auto">
+        <button class="btn btn-warning w-100 my-4">
+            <a class="nav-link text-light" href="{{ route('add car') }}">{{ __('Add an Other Car in Agnece') }}</a>
+        </button>
     </div>
 @endsection
 
@@ -108,7 +48,6 @@ main {
   background-repeat: no-repeat;
 }
 .container h3 {
-  /* background-color: rgb(197, 197, 152); */
   opacity: 75%;
   border-radius: 7px;
 }
@@ -120,6 +59,7 @@ main {
 .card img {
   width: 90%;
   border-radius: 10px;
+  margin: 10px;
 }
 
 .card span {

@@ -103,7 +103,7 @@ class UserController extends Controller
         $user->CIN = $validatedData['CIN'];
         $user->save();
 
-        return view('home');
+        return redirect()->route('home');
     }
 
     /**

@@ -15,7 +15,7 @@
             <img src="{{asset('driving_license_photos')}}/{{$user->driving_license_photo}}" alt="Driving Licence" class="" style="width: 200px;">
         </div>
     </div>
-    <a class="nav-link fw-bold text-primary p-4 pb-2" href="{{ route('Update Profile') }}">{{ __('Update Profile') }}</a>
+    <a class="nav-link fw-bold text-center text-light w-50 w-md-25 btn btn-primary p-1 mt-3" href="{{ route('Update Profile') }}">{{ __('Update Profile') }}</a>
   </div>
   <style>
   body {
