@@ -48,10 +48,10 @@
                         <a class="nav-link text-light" href="{{ route('home') }}">{{ __('Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ route('Update Profile') }}">{{ __('Update Profile') }}</a>
+                        <a class="nav-link text-light">{{ __('View Rents') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light">{{ __('View Rents') }}</a>
+                        <a class="nav-link text-light" href="{{ route('Vue Profile') }}">{{ __('Profile') }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

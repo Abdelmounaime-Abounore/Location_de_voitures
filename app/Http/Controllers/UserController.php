@@ -22,6 +22,12 @@ class UserController extends Controller
         return view('update-profile', compact('user'));
     }
 
+    public function indexVueProfile()
+    {
+        $user = auth()->user();
+        return view('vue-profile', compact('user'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
