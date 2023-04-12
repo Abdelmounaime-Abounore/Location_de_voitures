@@ -20,14 +20,14 @@
                       {{$car->description}}<br><br>
                   </p>
               </div>
-              <div>
+              <div class="d-flex justify-content-between w-25" style="height: 37px">
                 <form action="{{route('cars destroy', $car->id)}}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-danger mx-2">Delete</button>
                 </form>
                 {{-- <a href="{{route('cars destroy', $car->id)}}" class="btn btn-danger mx-2">Delete</a> --}}
-                <a href="" class="btn btn-primary">Update</a>
+                <a href="{{route('update car vue')}}" class="btn btn-primary">Update</a>
               </div>
             </div>
           </div>

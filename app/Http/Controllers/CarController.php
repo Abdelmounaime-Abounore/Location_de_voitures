@@ -91,7 +91,7 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        return view('update-car', compact('car'));
     }
 
     /**

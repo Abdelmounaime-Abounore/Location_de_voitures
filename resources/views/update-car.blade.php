@@ -1,0 +1,99 @@
+@extends('layouts.app')
+@section('content')
+<form class="w-75 m-auto my-5" method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
+    @csrf
+    
+    <div class="row mb-3 my-3">
+        <label for="brand" class="col-md-4 col-form-label text-md-end">{{ __('Brand') }}</label>
+        <div class="col-md-6">
+            <input id="brand" type="text" class="form-control @error('brand') is-invalid @enderror" name="brand" value="" required autocomplete="brand" autofocus>
+            @error('brand')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="model" class="col-md-4 col-form-label text-md-end">{{ __('Model') }}</label>
+        <div class="col-md-6">
+            <input id="model" type="number" class="form-control @error('model') is-invalid @enderror" name="model" value="" required autocomplete="model">
+            @error('model')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
+        <div class="col-md-6">
+            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="new-description"></textarea>
+            @error('description')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('Price') }}</label>
+        <div class="col-md-6">
+            <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value = "" required autocomplete="price" autofocus>
+            @error('price')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="photo1" class="col-md-4 col-form-label text-md-end">{{ __('Car photo (external image)') }}</label>
+        <div class="col-md-6">
+            <input id="photo1" type="file" class="form-control @error('photo1') is-invalid @enderror" name="photo1" required autocomplete="photo1" autofocus>
+            @error('photo1')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="photo2" class="col-md-4 col-form-label text-md-end">{{ __('Car photo (inside image)') }}</label>
+        <div class="col-md-6">
+            <input id="photo2" type="file" class="form-control @error('photo2') is-invalid @enderror" name="photo2" required autocomplete="photo2" autofocus>
+            @error('photo2')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row mb-0">
+        <div class="col-md-6 offset-md-4">
+            <button type="submit" class="btn btn-primary">
+                {{ __('Update Info') }}
+            </button>
+        </div>
+    </div>
+</form>
+@endsection
+
+<style>
+    main {
+        background-color: #e6e6e6;
+    }
+    .license-photo {
+        width: 25%;
+    }
+    .license-photo img {
+        width: 100%;
+        border-radius: 7%;
+    }
+</style>
