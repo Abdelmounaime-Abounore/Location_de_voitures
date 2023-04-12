@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
     Route::get('/add-car', [App\Http\Controllers\CarController::class, 'create'])->name('add car');
     Route::post('/add/car', [App\Http\Controllers\CarController::class, 'store'])->name('car add');
+    Route::delete('/cars/{car}', [App\Http\Controllers\CarController::class, 'destroy'])->name('cars destroy');
+
     
 });  
 Route::get('/home', [App\Http\Controllers\CarController::class, 'index'])->name('home');
