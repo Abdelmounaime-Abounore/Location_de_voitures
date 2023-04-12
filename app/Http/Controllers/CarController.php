@@ -46,10 +46,10 @@ class CarController extends Controller
             'photo2' => 'required'
         ]);
     
-        $img1Name = $validatedData['photo1']->getClientOriginalName();
+        $img1Name = time().'.'. $validatedData['photo1']->getClientOriginalName();
         $validatedData['photo1']->move(public_path('car-photos'), $img1Name);
 
-        $img2Name = $validatedData['photo2']->getClientOriginalName();
+        $img2Name = time().'.'. $validatedData['photo2']->getClientOriginalName();
         $validatedData['photo2']->move(public_path('car-photos'), $img2Name);
 
         $car = Car::create([

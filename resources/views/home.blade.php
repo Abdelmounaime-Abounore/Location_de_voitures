@@ -7,8 +7,9 @@
             <div class="col p-2" style="height:425px">
                 <div class="card bg-light m-1 p-3 h-100">
                     <div class="w-50 d-flex p-2">
-                        <img src="images/clio.jpg" alt="clio">
-                        <img src="images/in1.jpg" alt="">
+                      @foreach ($car->photos as $photo)
+                        <img src="{{ asset('car-photos/' . $photo->name) }}" alt="{{ $car->brand }} {{ $car->model }}">
+                      @endforeach
                     </div>
                     <div class="">
                         <p> <span> {{$car->brand}}, Model {{$car->model}} </p>
@@ -44,7 +45,7 @@ nav {
 main {
   background-image: url(../images/Dashbord-bg.png);
   background-size: cover;
-  background-position: center center;
+  /* background-position: center center; */
   background-repeat: no-repeat;
 }
 .container h3 {
