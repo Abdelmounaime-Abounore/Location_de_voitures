@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -40,15 +41,33 @@ class CarController extends Controller
             'brand' => 'required|string|max:255',
             'model' => 'required|integer',
             'description' => 'required|string|max:255',
-            'price' => 'required|integer'
+            'price' => 'required|integer',
+            'photo1' => 'required',
+            'photo2' => 'required'
         ]);
     
+        $img1Name = $validatedData['photo1']->getClientOriginalName();
+        $validatedData['photo1']->move(public_path('car-photos'), $img1Name);
+
+        $img2Name = $validatedData['photo2']->getClientOriginalName();
+        $validatedData['photo2']->move(public_path('car-photos'), $img2Name);
+
         $car = Car::create([
             'brand' => $validatedData['brand'],
             'model' => $validatedData['model'],
             'description' => $validatedData['description'],
-            'price' => $validatedData['price']
+            'price' => $validatedData['price'],
         ]);
+
+        $photo1 = Photo::create([
+            'name' => $img1Name,
+            'car_id' => $car->id
+        ]);
+        $photo2 = Photo::create([
+            'name' => $img2Name,
+            'car_id' => $car->id
+        ]);
+         
     
         return redirect()->route('home');;
     }
