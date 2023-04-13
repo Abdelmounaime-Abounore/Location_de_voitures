@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<form class="w-75 m-auto my-5" method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
+<form class="w-75 m-auto my-5" method="POST" action="{{ route('update car data', ['id' => $car->id])}}" enctype="multipart/form-data">
     @csrf
-
+    @method('PUT')
     <div class="row mb-3 my-3">
         <label for="brand" class="col-md-4 col-form-label text-md-end">{{ __('Brand') }}</label>
         <div class="col-md-6">

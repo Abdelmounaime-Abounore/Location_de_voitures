@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/add/car', [App\Http\Controllers\CarController::class, 'store'])->name('car add');
     Route::delete('/cars/{car}', [App\Http\Controllers\CarController::class, 'destroy'])->name('cars destroy');
     Route::get('/cars/{id}/edit', [App\Http\Controllers\CarController::class, 'edit'])->name('update car vue');
+    Route::put('/cars/{id}', [App\Http\Controllers\CarController::class, 'update'])->name('update car data');
 
     
 });  
