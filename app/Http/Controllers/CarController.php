@@ -89,8 +89,9 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function edit(Car $car)
+    public function edit($id)
     {
+        $car = Car::find($id);
         return view('update-car', compact('car'));
     }
 

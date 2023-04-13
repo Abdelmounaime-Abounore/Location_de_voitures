@@ -2,11 +2,11 @@
 @section('content')
 <form class="w-75 m-auto my-5" method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
     @csrf
-    
+
     <div class="row mb-3 my-3">
         <label for="brand" class="col-md-4 col-form-label text-md-end">{{ __('Brand') }}</label>
         <div class="col-md-6">
-            <input id="brand" type="text" class="form-control @error('brand') is-invalid @enderror" name="brand" value="" required autocomplete="brand" autofocus>
+            <input id="brand" type="text" class="form-control @error('brand') is-invalid @enderror" name="brand" value="{{ $car->brand }}" required autocomplete="brand" autofocus>
             @error('brand')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -18,7 +18,7 @@
     <div class="row mb-3">
         <label for="model" class="col-md-4 col-form-label text-md-end">{{ __('Model') }}</label>
         <div class="col-md-6">
-            <input id="model" type="number" class="form-control @error('model') is-invalid @enderror" name="model" value="" required autocomplete="model">
+            <input id="model" type="number" class="form-control @error('model') is-invalid @enderror" name="model" value="{{ $car->model }}" required autocomplete="model">
             @error('model')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
     <div class="row mb-3">
         <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
         <div class="col-md-6">
-            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="new-description"></textarea>
+            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="new-description">{{ $car->description }}</textarea>
             @error('description')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
     <div class="row mb-3">
         <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('Price') }}</label>
         <div class="col-md-6">
-            <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value = "" required autocomplete="price" autofocus>
+            <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value = "{{$car->price}}" required autocomplete="price" autofocus>
             @error('price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -60,6 +60,9 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            <div class="w-100 my-3">
+                <img src="{{ asset('car-photos/' . $car->photos[0]->name) }}" alt="{{ $car->brand }} {{ $car->model }}">
+            </div>
         </div>
     </div>
 
@@ -72,6 +75,9 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            <div class="w-100 my-3">
+                <img src="{{ asset('car-photos/' . $car->photos[1]->name) }}" alt="{{ $car->brand }} {{ $car->model }}">
+            </div>
         </div>
     </div>
 
@@ -86,14 +92,8 @@
 @endsection
 
 <style>
-    main {
-        background-color: #e6e6e6;
-    }
-    .license-photo {
-        width: 25%;
-    }
-    .license-photo img {
-        width: 100%;
-        border-radius: 7%;
-    }
+   img {
+    height: 120px;
+    border-radius: 5px;
+   }
 </style>

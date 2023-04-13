@@ -27,7 +27,7 @@
                   <button type="submit" class="btn btn-danger mx-2">Delete</button>
                 </form>
                 {{-- <a href="{{route('cars destroy', $car->id)}}" class="btn btn-danger mx-2">Delete</a> --}}
-                <a href="{{route('update car vue')}}" class="btn btn-primary">Update</a>
+                <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
               </div>
             </div>
           </div>
@@ -55,7 +55,6 @@ nav {
 main {
   background-image: url(../images/Dashbord-bg.png);
   background-size: cover;
-  /* background-position: center center; */
   background-repeat: no-repeat;
 }
 .container h3 {
@@ -69,7 +68,6 @@ main {
 
 .card img {
   height: 120px;
-  /* width: 90%; */
   border-radius: 10px;
   margin: 10px;
 }
