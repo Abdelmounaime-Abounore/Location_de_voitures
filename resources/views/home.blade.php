@@ -20,14 +20,14 @@
                       {{$car->description}}<br><br>
                   </p>
               </div>
-              <div class="d-flex justify-content-between w-25" style="height: 37px">
+              <div class="d-flex justify-content-between w-100" style="height: 37px">
                 <form action="{{route('cars destroy', $car->id)}}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-danger mx-2">Delete</button>
                 </form>
-                {{-- <a href="{{route('cars destroy', $car->id)}}" class="btn btn-danger mx-2">Delete</a> --}}
                 <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
+                <a href="{{route("reserve car")}}" class="btn btn-primary mx-2 w-100">Reserve Car</a>
               </div>
             </div>
           </div>
@@ -47,16 +47,20 @@ html, body {
   padding: 0;
   height: 100%;
 }
-
-nav {
-  background-color:rgb(192, 192, 186);
-  height:14%;
-}
-main {
+bodyz {
   background-image: url(../images/Dashbord-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
+nav {
+  background-color:rgb(192, 192, 186);
+  height:14%;
+}
+/* main {
+  background-image: url(../images/Dashbord-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
 .container h3 {
   opacity: 75%;
   border-radius: 7px;
