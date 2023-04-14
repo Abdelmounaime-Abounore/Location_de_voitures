@@ -27,7 +27,7 @@
                   <button type="submit" class="btn btn-danger mx-2">Delete</button>
                 </form>
                 <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
-                <a href="{{route("reserve car")}}" class="btn btn-primary mx-2 w-100">Reserve Car</a>
+                <a href="{{ route('reserve car', ['car_id' => $car->id]) }}" class="btn btn-primary mx-2 w-100">Reserve Car</a>
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@
   </div>
   <div class="w-50 m-auto">
       <button class="btn btn-warning w-100 my-4">
-          <a class="nav-link text-light" href="{{ route('add car') }}">{{ __('Add an Other Car in Agnece') }}</a>
+          <a class="nav-link text-light" href="{{ route('add car'), $car->id }}">{{ __('Add an Other Car in Agnece') }}</a>
       </button>
   </div>
 </div>  
@@ -47,7 +47,7 @@ html, body {
   padding: 0;
   height: 100%;
 }
-bodyz {
+body  {
   background-image: url(../images/Dashbord-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -56,11 +56,7 @@ nav {
   background-color:rgb(192, 192, 186);
   height:14%;
 }
-/* main {
-  background-image: url(../images/Dashbord-bg.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
+
 .container h3 {
   opacity: 75%;
   border-radius: 7px;

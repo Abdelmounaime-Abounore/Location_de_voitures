@@ -30,7 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/cars/{car}', [App\Http\Controllers\CarController::class, 'destroy'])->name('cars destroy');
     Route::get('/cars/{id}/edit', [App\Http\Controllers\CarController::class, 'edit'])->name('update car vue');
     Route::put('/cars/{id}', [App\Http\Controllers\CarController::class, 'update'])->name('update car data');
-    Route::get('/reserve-car', [App\Http\Controllers\ReservationController::class, 'index'])->name('reserve car');
+    Route::get('/reserve-car/{car_id}', [App\Http\Controllers\ReservationController::class, 'index'])->name('reserve car');
+    Route::post('/reseve-car', [App\Http\Controllers\ReservationController::class, 'store'])->name('car_reservation');
 
     
 });  

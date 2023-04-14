@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use App\Models\Car;
 
 class ReservationController extends Controller
 {
@@ -12,9 +13,10 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($car_id)
     {
-        return view('reserve-car');
+        $car = Car::find($car_id);
+        return view('reserve-car', ['car' => $car]);
     }
 
     /**
@@ -35,7 +37,30 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_mobile_number' => 'required|numeric|regex:/^[0-9]{10}$/',
+            'date_out' => 'required',
+            'date_back' => 'required',
+            'trip_description' => 'required|string'
+        ]);
+
+        $carId = $request->input('car_id');
+        $userMobileNumber = $validatedData['user_mobile_number'];
+        $dateOut = $validatedData['date_out'];
+        $dateBack = $validatedData['date_back'];
+        $tripDescription = $validatedData['trip_description'];
+        $userId = auth()->user()->id;
+
+        $reservation = new Reservation();
+        $reservation->car_id = $carId;
+        $reservation->user_mobile_number = $userMobileNumber;
+        $reservation->date_out = $dateOut;
+        $reservation->date_back = $dateBack;
+        $reservation->trip_description = $tripDescription;
+        $reservation->user_id = $userId;
+        $reservation->save();
+
+        return redirect()->route('home');
     }
 
     /**

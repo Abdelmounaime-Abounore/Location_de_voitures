@@ -17,8 +17,10 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('car_id');
             $table->unsignedBigInteger('user_id');
+            $table->integer('user_mobile_number');
             $table->date('date_out');
             $table->date('date_back');
+            $table->string('trip_description');
             $table->boolean('operation_confirmed')->default(false);
             $table->timestamps();
 
