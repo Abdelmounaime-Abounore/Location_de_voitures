@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<form class="w-75 m-auto my-5" method="POST" action="{{ route('update car data', ['id' => $car->id])}}" enctype="multipart/form-data">
+<div class="bg-light w-75 m-auto">
+<form class="w-75 m-auto my-5 py-3" method="POST" action="{{ route('update car data', ['id' => $car->id])}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="row mb-3 my-3">
@@ -89,6 +90,7 @@
         </div>
     </div>
 </form>
+</div>
 @endsection
 
 <style>

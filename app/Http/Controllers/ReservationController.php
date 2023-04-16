@@ -19,6 +19,13 @@ class ReservationController extends Controller
         return view('reserve-car', ['car' => $car]);
     }
 
+    public function index2()
+    {
+        $reservations = Reservation::all();
+        $reservations = Reservation::with('car', 'user')->get();
+        return view('vue-reservation', compact('reservations'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

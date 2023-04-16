@@ -48,7 +48,7 @@
                         <a class="nav-link text-light" href="{{ route('home') }}">{{ __('Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light">{{ __('Reservation view') }}</a>
+                        <a class="nav-link text-light" href="{{ route('Vue reseravtion') }}">{{ __('Reservation view') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('Vue Profile') }}">{{ __('Profile') }}</a>
