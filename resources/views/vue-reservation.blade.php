@@ -7,7 +7,8 @@
           <div class="card bg-light w-75 m-auto p-3 h-100">
             <div>
                 <h4> <span> User name: </span> {{$reservation->user->name}}</h4>
-                <p> <span> Car: </span>{{$reservation->car->brand}}</p>
+                <p><span> Phone Number : </span>0{{$reservation->user_mobile_number}} </p>
+                <p> <span> Car: </span>{{$reservation->car->brand}} </p>
                 <p class="text-danger fw-bold"> Price: {{$reservation->car->price}} MAD/ Day</p>
             </div>
             <div>
@@ -26,7 +27,7 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger mx-2">Delete</button>
               </form>
-              <a href="{{route('update reservation', $reservation->id)}}" class="btn btn-primary">Update</a>
+              <a href="{{route('update reservation vue', $reservation->id)}}" class="btn btn-primary">Update</a>
             </div>
           </div>
         </div>

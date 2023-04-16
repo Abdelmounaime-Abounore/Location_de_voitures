@@ -35,7 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reserve-car/{car_id}', [App\Http\Controllers\ReservationController::class, 'index'])->name('reserve car');
     Route::post('/reseve-car', [App\Http\Controllers\ReservationController::class, 'store'])->name('car_reservation');
     Route::get('/car-reservation', [App\Http\Controllers\ReservationController::class, 'index2'])->name('Vue reseravtion');
-    Route::get('/reservation/{id}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('update reservation');
+    Route::get('/reservation/{id}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('update reservation vue');
+    Route::put('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'update'])->name('update reservation info');
     
 
     

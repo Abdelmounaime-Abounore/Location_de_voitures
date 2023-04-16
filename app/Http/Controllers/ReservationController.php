@@ -101,9 +101,24 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'user_mobile_number' => 'required|numeric|regex:/^[0-9]{10}$/',
+            'date_out' => 'required',
+            'date_back' => 'required',
+            'trip_description' => 'required|string'
+        ]);
+
+        $reservation = Reservation::find($id);
+        $reservation->user_mobile_number = $validatedData['user_mobile_number'];
+        $reservation->date_out = $validatedData['date_out'];
+        $reservation->date_back = $validatedData['date_back'];
+        $reservation->trip_description = $validatedData['trip_description'];
+
+        $reservation->save();
+
+        return redirect()->route('Vue reseravtion');
     }
 
     /**
