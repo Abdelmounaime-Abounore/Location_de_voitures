@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class="d-flex justify-content-between w-25" style="height: 37px">
-              <form action="" method="POST">
+              <form action="{{route('reservation destroy', $reservation->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger mx-2">Delete</button>

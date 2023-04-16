@@ -37,9 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/car-reservation', [App\Http\Controllers\ReservationController::class, 'index2'])->name('Vue reseravtion');
     Route::get('/reservation/{id}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('update reservation vue');
     Route::put('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'update'])->name('update reservation info');
-    
-
-    
+    Route::delete('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reservation destroy');  
 });  
 Route::get('/home', [App\Http\Controllers\CarController::class, 'index'])->name('home');
     
