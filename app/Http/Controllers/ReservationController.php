@@ -87,9 +87,11 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reservation $reservation)
+    
+     public function edit($id)
     {
-        //
+        $reservation = Reservation::find($id);
+        return view('edit-reservation', compact('reservation'));
     }
 
     /**
