@@ -94,14 +94,6 @@
 </div>
 
 <style>
-    html,body {
-        height: 100%;
-    }
-
-    #app{
-    height: 100%;
-    }
-    
     main {
         background-color: #ecdede;
         color: rgb(236 236 236);

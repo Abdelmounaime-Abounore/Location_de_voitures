@@ -18,8 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-        return view('update-profile', compact('user'));
+        $users = User::all();
+        return view('all-users', compact('users'));
     }
 
     public function indexVueProfile()
@@ -68,7 +68,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $user = auth()->user();
+        return view('update-profile', compact('user'));
     }
 
     /**

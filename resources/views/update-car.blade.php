@@ -94,6 +94,10 @@
 @endsection
 
 <style>
+
+   main {
+    background-color: #e6e6e6;
+   } 
    img {
     height: 120px;
     border-radius: 5px;

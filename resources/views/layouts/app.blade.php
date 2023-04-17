@@ -51,6 +51,9 @@
                         <a class="nav-link text-light" href="{{ route('Vue reseravtion') }}">{{ __('Reservation view') }}</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('all users') }}">{{ __('All Users') }}</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('Vue Profile') }}">{{ __('Profile') }}</a>
                     </li>
                     <li class="nav-item dropdown">
