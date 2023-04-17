@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1 class=" my-3">All Users</h1>
+    <h1 class="text-secondary my-3">All Users</h1>
     <div class="table-responsive">
         <table class="table table-striped m-auto my-5 opacity-75 rounded" style="width: 95%; background-color: #cff4fc;">
             <thead class="text-danger">
@@ -24,7 +24,11 @@
                         <td class="text-secondary fw-bold"> {{$user->address}} </td>
                         <td class="text-secondary fw-bold"> {{$user->CIN}} </td>
                         <td>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <form action="{{route("destroy user", $user->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger mx-2">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

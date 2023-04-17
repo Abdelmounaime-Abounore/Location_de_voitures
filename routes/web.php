@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/vue-profile', [App\Http\Controllers\UserController::class, 'indexVueProfile'])->name('Vue Profile');
     Route::get('/update-profile', [App\Http\Controllers\UserController::class, 'edit'])->name('Update Profile');
     Route::post('/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
+    Route::delete('/delete/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroy user');
 
     Route::get('/add-car', [App\Http\Controllers\CarController::class, 'create'])->name('add car');
     Route::post('/add/car', [App\Http\Controllers\CarController::class, 'store'])->name('car add');
@@ -40,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reservation/{id}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('update reservation vue');
     Route::put('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'update'])->name('update reservation info');
     Route::delete('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reservation destroy'); 
-     
+
 });  
 Route::get('/home', [App\Http\Controllers\CarController::class, 'index'])->name('home');
     
