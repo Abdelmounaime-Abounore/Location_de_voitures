@@ -2,7 +2,7 @@
 @section('content')
 <div class="w-75 m-auto rounded" style="background-color: #c1b9b9">
     <h1 class="text-center py-5"> Add New Car</h1>
-    <form method="POST" action="{{ route('car add') }} " enctype="multipart/form-data">
+    <form class="p-3" method="POST" action="{{ route('car add') }}" enctype="multipart/form-data">
         @csrf
         <div class="row mb-3 my-3">
             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Brand') }}</label>

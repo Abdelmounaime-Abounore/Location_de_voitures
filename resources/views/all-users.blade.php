@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="text-secondary my-3">All Users</h1>
     <div class="table-responsive">
-        <table class="table table-striped m-auto my-5 opacity-75 rounded" style="width: 95%; background-color: #cff4fc;">
+        <table class="table table-striped m-auto my-5 mx-3 opacity-75 rounded" style="width: 95%; background-color: #cff4fc;">
             <thead class="text-danger">
               <tr>
                 <th>#</th>

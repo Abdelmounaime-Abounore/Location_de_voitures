@@ -16,8 +16,17 @@
                     class="" style="width: 200px;">
             </div>
         </div>
-        <a class="updateBtn nav-link fw-bold text-center text-light d-block w-25 mb-2 mx-auto w-md-25 btn btn-danger p-1 mt-3"
+        <div class="d-flex justify-content-center my-3 ">
+            {{-- <a class="updateBtn nav-link fw-bold text-center text-light d-block w-25 mb-2 mx-auto w-md-25 btn btn-primary p-1 mt-3"
+            href="{{ route('Update Profile') }}">{{ __('Update Profile') }}</a> --}}
+            <a class="btn btn-primary mx-2"
             href="{{ route('Update Profile') }}">{{ __('Update Profile') }}</a>
+            <form method="POST" action="{{ route('delete profile', $user->id) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete Profile</button>
+            </form>              
+        </div>
     </div>
     <style>
         body {

@@ -3,7 +3,7 @@
 
 <div class="row row-cols-1 row-cols-lg-2 g-3 m-3">
     @foreach($reservations as $reservation)
-        <div class="col my-4" style="height:400px">
+        <div class="col my-4" style="height:420px">
           <div class="card bg-light w-75 m-auto p-3 h-100">
             <div>
                 <h4> <span> User name: </span> {{$reservation->user->name}}</h4>
@@ -38,6 +38,7 @@
 <style>
 main {
     background-color: #e6e6e6;
+    height: 100%;
 }
 span {
     font-weight: bold;

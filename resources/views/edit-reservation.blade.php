@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="container">
-    <h1 class="text-light text-center my-4 bg-info w-50 p-2 rounded">Edit reservation information</h1>
-    <h4 class="my-5 text-danger">Reserved Car : {{$reservation->car->brand}}</h4>
-    <form class="bg-light p-4 my-3" method="POST" action="{{ route('update reservation info', ['id' => $reservation->id]) }} "  style="border-radius:7px; opacity: 90%">
+    <h1 class="text-light text-center my-4 mx-3 bg-info w-50 p-2 rounded">Edit reservation information</h1>
+    <h4 class="my-5 text-danger mx-3">Reserved Car : {{$reservation->car->brand}}</h4>
+    <form class="bg-light p-4 my-3 mx-3" method="POST" action="{{ route('update reservation info', ['id' => $reservation->id]) }} "  style="border-radius:7px; opacity: 90%">
         @csrf
         @method('PUT')
         <div class="row mb-3 my-3">

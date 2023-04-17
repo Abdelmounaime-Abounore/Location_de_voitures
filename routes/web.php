@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/update-profile', [App\Http\Controllers\UserController::class, 'edit'])->name('Update Profile');
     Route::post('/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroy user');
+    Route::delete('/delete/{id}/profile', [App\Http\Controllers\UserController::class, 'destroyProfile'])->name('delete profile');
 
     Route::get('/add-car', [App\Http\Controllers\CarController::class, 'create'])->name('add car');
     Route::post('/add/car', [App\Http\Controllers\CarController::class, 'store'])->name('car add');

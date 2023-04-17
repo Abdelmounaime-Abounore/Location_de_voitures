@@ -104,7 +104,7 @@ class UserController extends Controller
         $user->CIN = $validatedData['CIN'];
         $user->save();
 
-        return redirect()->route('home');
+        return redirect()->route('Vue Profile');
     }
 
     /**
@@ -118,5 +118,12 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->route('all users');
+    }
+
+    public function destroyProfile($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/');
     }
 }

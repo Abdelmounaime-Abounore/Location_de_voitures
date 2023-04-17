@@ -7,6 +7,7 @@
 - En tant qu'administrateur, je peux ajouter des nouvelles voitures qui seront disponibles en agence et prêtes à être louées
 - En tant qu'administrateur, je peut voir une liste contenant les voitures disponibles en agence
 - En tant qu'administrateur, je peux modifier les informations concernant une voiture à louer
+- En tant qu'administrateur, je peux supprimer une voiture de l'agence
 - En tant qu'administrateur, je peux voir une liste des utilisateurs de mon application
 - En tant qu'administrateur, je peux supprimer les comptes des utilisateurs de mon application
 - En tant qu'administrateur, je peux voir les réservations des clients
@@ -28,4 +29,3 @@
 - Le client peut ajouter un commentaire sur un offre de location d'une voiture
 - L eclient peut supprimer et modifier son commentaire
 - Le client peut voir les commentaires des autre clients sur un offre de location
-

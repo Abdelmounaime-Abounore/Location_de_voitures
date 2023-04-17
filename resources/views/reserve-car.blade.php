@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h1 class="text-light text-center my-4 bg-info w-50 p-2 rounded">Select Your Rental Period</h1>
-    <form class="bg-light py-4 my-3" method="POST" action="{{ route('car_reservation') }} "  style="border-radius:7px; opacity: 90%">
+    <h1 class="text-light text-center my-4 bg-info w-50 p-2 mx-3 rounded">Select Your Rental Period</h1>
+    <form class="bg-light p-4 mx-3" method="POST" action="{{ route('car_reservation') }} "  style="border-radius:7px; opacity: 90%;">
         @csrf
         <div class="row mb-3 my-3">
             <label for="mobile number" class="col-md-4 col-form-label text-md-end">{{ __('Mobile number') }}</label>
