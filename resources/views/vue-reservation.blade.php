@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="row row-cols-1 row-cols-lg-2 g-3 m-3">
+    
     @foreach($reservations as $reservation)
         <div class="col my-4" style="height:420px">
           <div class="card bg-light w-75 m-auto p-3 h-100">
@@ -36,8 +37,14 @@
 @endsection
 
 <style>
+body  {
+    background-image: url(../images/reservation-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 main {
-    background-color: #e6e6e6;
+    background-color: #111010;
+    opacity: 60%;
     height: 100%;
 }
 span {

@@ -22,7 +22,7 @@ class ReservationController extends Controller
     public function index2()
     {
         $reservations = Reservation::all();
-        $reservations = Reservation::with('car', 'user')->get();
+        $reservations = Reservation::with('car', 'user')->get();    
         return view('vue-reservation', compact('reservations'));
     }
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<div class="w-75 m-auto rounded" style="background-color: #c1b9b9">
-    <h1 class="text-center py-5"> Add New Car</h1>
+<div class="w-75 m-auto rounded" style="background-color: #e5e4e4; opacity: 90%">
+    <h1 class="text-center py-5 my-5"> Add New Car</h1>
     <form class="p-3" method="POST" action="{{ route('car add') }}" enctype="multipart/form-data">
         @csrf
         <div class="row mb-3 my-3">
@@ -94,11 +94,12 @@
 </div>
 
 <style>
-    main {
-        background-color: #ecdede;
-        color: rgb(236 236 236);
-        height: 100%;
-    }
+    body  { 
+        background-image: url(../images/add-car.jpg);
+        background-size: cover;
+        color: brown;
+        font-weight: bold;
+}
 </style>
 @endsection
 

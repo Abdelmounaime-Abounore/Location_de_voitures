@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form class="w-75 m-auto my-5" method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
+<form class="w-75 m-auto my-5 bg-light rounded py-3" method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
     @csrf
     @method('DELETE') 
     <div class="row mb-3 my-3">
@@ -108,9 +108,11 @@
 @endsection
 
 <style>
-    main {
-        background-color: #e6e6e6;
-    }
+     body  {
+        background-image: url(../images/profile-bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
     .license-photo {
         width: 25%;
     }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container">
+<div class="container my-5">
     <h1 class="text-light text-center my-4 bg-info w-50 p-2 mx-3 rounded">Select Your Rental Period</h1>
     <form class="bg-light p-4 mx-3" method="POST" action="{{ route('car_reservation') }} "  style="border-radius:7px; opacity: 90%;">
         @csrf

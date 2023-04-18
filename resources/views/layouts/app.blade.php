@@ -22,7 +22,7 @@
        <nav class="navbar navbar-expand-sm navbar-light shadow-sm" style="background-color:rgb(197, 197, 152);  height:80px">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="images/logo.png" alt="Logo" style="max-height: 75px;">
+                <img src="{{asset('images/logo.png')}}" alt="Logo" style="max-height: 75px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
                     </li>
                 </ul>
                 @else
-                <ul  class="w-100 d-flex justify-content-around list-unstyled" style="margin-top: 15px">
+                <ul class="w-100 d-flex justify-content-around list-unstyled" style="margin-top: 15px;>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('home') }}">{{ __('Home') }}</a>
                     </li>

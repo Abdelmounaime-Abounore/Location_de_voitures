@@ -4,7 +4,7 @@
   <h3 class="text-center text-light w-100 my-5 m-auto p-3 fw-bold">Welcome To <span class="text-primary">Castilla Rent Car</span>, Browse our offers and find what suits you best</h3>
   <div class="row row-cols-1 row-cols-lg-2 g-3">
       @foreach ($cars as $car)
-          <div class="col p-2 mx-3" style="height:460px">
+          <div class="col p-2" style="height:460px">
             <div class="card bg-light m-1 p-3 h-100">
               <div class="w-100 justify-content-around d-flex p-2">
                 @foreach ($car->photos as $photo)

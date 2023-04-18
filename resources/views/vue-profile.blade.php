@@ -29,10 +29,10 @@
         </div>
     </div>
     <style>
-        body {
-            background-color: rgb(230 230 230);
+        body  {
+        background-image: url(../images/profile-bg.jpg);
+        background-size: cover;
         }
-
         .card {
             width: 90%;
         }

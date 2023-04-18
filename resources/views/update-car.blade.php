@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="bg-light w-75 m-auto">
+<div class="bg-light w-75 m-auto rounded">
 <form class="w-75 m-auto my-5 py-3" method="POST" action="{{ route('update car data', ['id' => $car->id])}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
@@ -61,7 +61,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <div class="w-100 my-3">
+            <div class="image w-100 my-3">
                 <img src="{{ asset('car-photos/' . $car->photos[0]->name) }}" alt="{{ $car->brand }} {{ $car->model }}">
             </div>
         </div>
@@ -76,7 +76,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <div class="w-100 my-3">
+            <div class="image w-100 my-3">
                 <img src="{{ asset('car-photos/' . $car->photos[1]->name) }}" alt="{{ $car->brand }} {{ $car->model }}">
             </div>
         </div>
@@ -91,15 +91,16 @@
     </div>
 </form>
 </div>
+
 @endsection
 
 <style>
-
-   main {
-    background-color: #e6e6e6;
-   } 
-   img {
+main {
+        background-color: rgb(232, 232, 229);
+    }
+   .image img {
     height: 120px;
     border-radius: 5px;
    }
+   
 </style>

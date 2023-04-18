@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <h1 class="text-secondary my-3">All Users</h1>
+    <h1 class="text-light text-center my-5 mx-4">All Users</h1>
     <div class="table-responsive">
-        <table class="table table-striped m-auto my-5 mx-3 opacity-75 rounded" style="width: 95%; background-color: #cff4fc;">
+        <table class="table table-striped m-auto my-5  opacity-75 rounded" style="width: 95%; background-color: #cff4fc;">
             <thead class="text-danger">
               <tr>
                 <th>#</th>
@@ -37,18 +37,17 @@
     </div>
 @endsection
 <style>
+
 body {
     background-image: url(../images/users-bg.jpg);
     background-size: cover;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;  
 }
-/* main {
-        background-color: #d6d6d6;
-        height: 100%;
-    } */
 h1 {
-    width: 95%;
-    margin: auto;
+    width: 30%;
+    background-color: brown;
+    border-radius: 7px;
+    padding: 10px;
 }
 tr {
     height: 50px;
