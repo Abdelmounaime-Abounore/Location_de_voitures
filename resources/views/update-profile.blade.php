@@ -2,7 +2,6 @@
 @section('content')
 <form class="w-75 m-auto my-5 bg-light rounded py-3" method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
     @csrf
-    @method('DELETE') 
     <div class="row mb-3 my-3">
         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 

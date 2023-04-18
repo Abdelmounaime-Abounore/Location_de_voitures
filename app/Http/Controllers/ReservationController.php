@@ -67,7 +67,7 @@ class ReservationController extends Controller
         $reservation->user_id = $userId;
         $reservation->save();
 
-        return redirect()->route('home');
+        return redirect()->route('Vue reseravtion');
     }
 
     /**
