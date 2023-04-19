@@ -22,14 +22,8 @@ return new class extends Migration
             $table->string('driving_license_photo');
             $table->string('address');
             $table->string('CIN');
-            $table->unsignedBigInteger('role_id')->default(2);
             $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('role_id')
-            ->references('id')
-            ->on('roles')
-            ->onDelete('cascade');
         });
     }
 

@@ -19,6 +19,7 @@
 ## Client:
 - Le client peut créer un compte
 - Le client peut se connecter à cette application
+- Le client peut voir les informations de son compte
 - Le client peut modifier son profile
 - Le client peut supprimer son compte
 - Le client peut voir une liste contenant les voitures disponibles en agence ainsi que les informations concernant ces voitures
