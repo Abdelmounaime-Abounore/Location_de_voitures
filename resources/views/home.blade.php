@@ -12,7 +12,7 @@
                 @endforeach
               </div>
               <div class="">
-                  <p> <span> {{$car->brand}}, Model {{$car->model}} </p>
+                  <p> <span> {{$car->brand}}, Model {{$car->model}} </span></p>
                   <p class="text-danger fw-bold"> Price: {{$car->price}} MAD/ Day</p>
               </div>
               <div>
@@ -21,24 +21,42 @@
                   </p>
               </div>
               <div class="d-flex justify-content-between w-100" style="height: 37px">
-                <form action="{{route('cars destroy', $car->id)}}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-danger mx-2">Delete</button>
-                </form>
-                <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
-                <a href="{{ route('reserve car', ['car_id' => $car->id]) }}" class="btn btn-primary mx-2 w-100">Reserve Car</a>
+                @if(Auth()->user()->can('update or delete cars'))
+                  <form id="delete-form" action="{{route('cars destroy', $car->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger mx-2" id="delete-car">Delete</button>
+                  </form>
+                  <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
+                @endif
+                @if(Auth()->user()->can('form to reserve car'))
+                  <a href="{{ route('reserve car', ['car_id' => $car->id]) }}" class="btn btn-primary mx-2 w-100">Reserve Car</a>
+                @endif
               </div>
             </div>
           </div>
       @endforeach    
   </div>
+  @if(Auth()->user()->can('add cars'))
   <div class="w-50 m-auto">
       <button class="btn btn-warning w-100 my-4">
-          <a class="nav-link text-light" href="{{ route('add car'), $car->id }}">{{ __('Add an Other Car in Agnece') }}</a>
+          <a class="nav-link text-light" href="{{ route('add car')}}">{{ __('Add an Other Car in Agnece') }}</a>
       </button>
   </div>
+  @endif
+
 </div>  
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+      let deleteButton = document.getElementById("delete-car");
+      deleteButton.addEventListener("click", function(event){
+          event.preventDefault(); // Prevent the form from submitting
+          if (confirm("Are you sure you want to delete this car?")) {
+              document.getElementById("delete-form").submit(); // Submit the form
+          }
+      });
+  });
+</script>
 @endsection
 
 <style>

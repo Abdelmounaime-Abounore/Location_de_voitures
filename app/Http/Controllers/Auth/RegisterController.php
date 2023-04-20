@@ -81,8 +81,10 @@ class RegisterController extends Controller
         'driving_license_photo' => $imgName,
         'address' => $data['address'],
         'CIN' => $data['CIN'],
-    ]);
+        ]);
 
-    return $user;
+        $user->assignRole('user');
+
+        return $user;
     }
 }

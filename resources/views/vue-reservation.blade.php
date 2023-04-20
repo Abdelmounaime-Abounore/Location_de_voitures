@@ -22,18 +22,33 @@
                     {{ $reservation->date_back }}<br><br>
                 </p>
             </div>
-            <div class="d-flex justify-content-between w-25" style="height: 37px">
-              <form action="{{route('reservation destroy', $reservation->id)}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger mx-2">Delete</button>
-              </form>
-              <a href="{{route('update reservation vue', $reservation->id)}}" class="btn btn-primary">Update</a>
-            </div>
+            @if(Auth()->user()->can('update or delete reservation'))
+                <div class="d-flex justify-content-between w-25" style="height: 37px">
+                <form id="delete-form" action="{{route('reservation destroy', $reservation->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" id="delete-reservation" class="btn btn-danger mx-2">Delete</button>
+                </form>
+                <a href="{{route('update reservation vue', $reservation->id)}}" class="btn btn-primary">Update</a>
+                </div>
+            @endif
           </div>
         </div>
     @endforeach    
 </div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        let deleteButton = document.getElementById("delete-reservation");
+        deleteButton.addEventListener("click", function(event){
+            event.preventDefault(); // Prevent the form from submitting
+            if (confirm("Are you sure you want cancel you reservation")) {
+                document.getElementById("delete-form").submit(); // Submit the form
+            }
+        });
+    });
+</script>
+
 @endsection
 
 <style>

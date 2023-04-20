@@ -15,7 +15,6 @@ class CarController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
         $cars = Car::all();
         return view('home', compact('cars'));
     }

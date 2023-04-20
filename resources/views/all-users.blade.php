@@ -23,18 +23,31 @@
                         <td class="text-secondary fw-bold"> <a href="driving_license_photos/{{$user->driving_license_photo}}">See driver's license</a> </td>
                         <td class="text-secondary fw-bold"> {{$user->address}} </td>
                         <td class="text-secondary fw-bold"> {{$user->CIN}} </td>
-                        <td>
-                            <form action="{{route("destroy user", $user->id)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger mx-2">Delete</button>
-                            </form>
-                        </td>
+                        @if($user->hasRole("user"))
+                            <td>
+                                <form id="delete-form" action="{{route("destroy user", $user->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button id="delete-user" type="submit" class="btn btn-danger mx-2">Delete</button>
+                                </form>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            let deleteButton = document.getElementById("delete-user");
+            deleteButton.addEventListener("click", function(event){
+                event.preventDefault(); 
+                if (confirm("Are you sure you want to delete this user?")) {
+                    document.getElementById("delete-form").submit(); 
+                }
+            });
+        });
+      </script>
 @endsection
 <style>
 

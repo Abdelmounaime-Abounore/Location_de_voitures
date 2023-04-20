@@ -50,9 +50,11 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('Vue reseravtion') }}">{{ __('Reservation view') }}</a>
                     </li>
+                    @if(Auth()->user()->can('view all users'))
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('all users') }}">{{ __('All Users') }}</a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ route('Vue Profile') }}">{{ __('Profile') }}</a>
                     </li>

@@ -23,22 +23,25 @@ class RolesAndPermissionsSeeder extends Seeder
          // create permissions
 
          Permission::create(['name' => 'view profile']);
+         Permission::create(['name' => 'fetch profile info to edit']);
          Permission::create(['name' => 'update profile']);
          Permission::create(['name' => 'delete profile']);
 
+         Permission::create(['name' => 'form to add car']);
          Permission::create(['name' => 'add cars']);
          Permission::create(['name' => 'view cars']);
-         Permission::create(['name' => 'update cars']);
-         Permission::create(['name' => 'delete cars']);
+         Permission::create(['name' => 'form to update car']);
+         Permission::create(['name' => 'update or delete cars']);
 
          Permission::create(['name' => 'view all users']);
          Permission::create(['name' => 'delete users']);
 
+         Permission::create(['name' => 'form to reserve car']);
          Permission::create(['name' => 'view all reservations']);
          Permission::create(['name' => 'create reservations']);
         //  Permission::create(['name' => 'view own reservations']);
-         Permission::create(['name' => 'update reservations']);
-         Permission::create(['name' => 'delete reservations']);
+         Permission::create(['name' => 'form to update reservation']);
+         Permission::create(['name' => 'update or delete reservation']);
 
 
 
@@ -49,11 +52,13 @@ class RolesAndPermissionsSeeder extends Seeder
 
         Role::create(['name' => $admin])->givePermissionTo([
             'view profile',
+            'fetch profile info to edit',
             'update profile',
+            'form to add car',
             'add cars',
             'view cars',
-            'update cars',
-            'delete cars',
+            'form to update car',
+            'update or delete cars',
             'view all users',
             'delete users',
             'view all reservations',
@@ -62,13 +67,15 @@ class RolesAndPermissionsSeeder extends Seeder
 
         Role::create(['name' => $user])->givePermissionTo([
             'view profile',
+            'fetch profile info to edit',
             'update profile',
             'delete profile',
             'view cars',
             'view all reservations',
+            'form to reserve car',
             'create reservations',
-            'update reservations',
-            'delete reservations',
+            'form to update reservation',
+            'update or delete reservation',
         ]);
 
 
