@@ -135,11 +135,11 @@
                 </div>
             </div>
         </div>
+        @if (!Auth()->user())
         <div class="d-flex flex-column align-items-center my-5 mx-4">
             <div class="bg-primary p-2" style="margin-bottom: 20px; opacity:50%; border-radius: 7px">
                 <h2>Create Your Account, and Rent your best Car</h2>
             </div>
-            @if (!Auth()->user())
                 <div>
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-white-500 text-decoration-none p-2 register-link">Register</a>
                 </div>

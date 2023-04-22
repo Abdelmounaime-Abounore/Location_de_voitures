@@ -4,7 +4,7 @@
   <h3 class="text-center text-light w-100 my-5 m-auto p-3 fw-bold">Welcome To <span class="text-primary">Castilla Rent Car</span>, Browse our offers and find what suits you best</h3>
   <div class="row row-cols-1 row-cols-lg-2 g-3">
       @foreach ($cars as $car)
-          <div class="col p-2" style="height:460px">
+          <div class="col p-2" style="height:330px">
             <div class="card bg-light m-1 p-3 h-100">
               <div class="w-100 justify-content-around d-flex p-2">
                 @foreach ($car->photos as $photo)
@@ -15,23 +15,23 @@
                   <p> <span> {{$car->brand}}, Model {{$car->model}} </span></p>
                   <p class="text-danger fw-bold"> Price: {{$car->price}} MAD/ Day</p>
               </div>
-              <div>
-                  <p class=""> <span> Description: </span> <br>
-                      {{$car->description}}<br><br>
-                  </p>
-              </div>
-              <div class="d-flex justify-content-between w-100" style="height: 37px">
-                @if(Auth()->user()->can('update or delete cars'))
-                  <form id="delete-form" action="{{route('cars destroy', $car->id)}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger mx-2" id="delete-car">Delete</button>
-                  </form>
-                  <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
-                @endif
-                @if(Auth()->user()->can('form to reserve car'))
-                  <a href="{{ route('reserve car', ['car_id' => $car->id]) }}" class="btn btn-primary mx-2 w-100">Reserve Car</a>
-                @endif
+              <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between w-25" style="height: 37px">
+                  @if(Auth()->user()->can('update or delete cars'))
+                    <form id="delete-form" action="{{route('cars destroy', $car->id)}}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger mx-2" id="delete-car">Delete</button>
+                    </form>
+                    <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
+                  @endif
+                  @if(Auth()->user()->can('form to reserve car'))
+                    <a href="{{ route('reserve car', ['car_id' => $car->id]) }}" class="btn btn-primary mx-2 w-100">Reserve Car</a>
+                  @endif
+                </div>
+                <div>
+                  <a href="{{route('offer-details', ['car_id' => $car->id]) }}" class="btn btn-secondary mx-2">View more Details</a>
+                </div>
               </div>
             </div>
           </div>

@@ -18,6 +18,12 @@ class CarController extends Controller
         $cars = Car::all();
         return view('home', compact('cars'));
     }
+
+    public function viewDetails($car_id)
+    {
+        $car = Car::find($car_id);
+        return view('offer-details', compact('car'));
+    }
     /**
      * Show the form for creating a new resource.
      *
