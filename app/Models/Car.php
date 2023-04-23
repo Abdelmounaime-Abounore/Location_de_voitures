@@ -20,4 +20,9 @@ class Car extends Model
         'description',
         'price'
     ];
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

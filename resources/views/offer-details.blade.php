@@ -13,7 +13,12 @@
                 {{$car->description}}<br><br>
             </p>
         </div>
+        @livewire('comments', ['carId' => $car->id])
     </div>
+    
+    {{-- <div class="w-75 m-auto my-3">
+        <a href="{{route("home")}}" class="btn btn-warning text-danger fw-bold">Go Back</a>
+    </div> --}}
 </div>  
 @endsection
 
@@ -39,7 +44,7 @@ nav {
 }
 
 .card img {
-  height: 210px;
+  width: 40%;
   border-radius: 10px;
   margin: 10px;
 }
