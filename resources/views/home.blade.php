@@ -46,7 +46,7 @@
   @endif
 
 </div>  
-<script>
+{{-- <script>
   window.addEventListener('DOMContentLoaded', (event) => {
       let deleteButton = document.getElementById("delete-car");
       deleteButton.addEventListener("click", function(event){
@@ -56,7 +56,7 @@
           }
       });
   });
-</script>
+</script> --}}
 @endsection
 
 <style>

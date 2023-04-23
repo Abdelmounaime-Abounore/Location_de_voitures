@@ -14,7 +14,7 @@ class Comments extends Component
     public function sendText()
     {
         if($this->commentText == null){
-          return  session()->flash('alert', 'Comment text is requered!');
+          return  session()->flash('alert', 'Comment Text is Required!');
         }
         Comment::create(
             [
@@ -25,7 +25,7 @@ class Comments extends Component
         $this->reset('commentText');
     }
 
-    public function render()
+    public function render() 
     {
         return view('livewire.comments',['car' => $this->carId,
         'comments' => Comment::all()
@@ -51,7 +51,7 @@ class Comments extends Component
             [
             'user_id' => auth()->user()->id,
             'content' => $this->updateComment,
-            'car_id' => $this->carId,
+            'car_id' => $this->carId, 
         ]);
     }
 }

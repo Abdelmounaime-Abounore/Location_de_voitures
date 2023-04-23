@@ -3,7 +3,7 @@
         <p class=""><b>Offer Comments</b></p>
         <div id="comentScroll" class="overflow-auto bg-light rounded p-3" style="max-height: 20em;">
             @foreach ($comments as $comment)
-                @if($car == $comment->car_id)  
+                @if($car == $comment->car_id) 
                     @if ($comment->user->name == auth()->user()->name)
                         <div class="mb-4" >
                             <pre><b class="text-secondary">{{ $comment->user->name }}</b></pre>
@@ -17,7 +17,7 @@
                             <br> <span class="text-secondary " style="font-size: .7em">{{ $comment->created_at->diffForHumans() }}</span> <br>
                             <span class="">
                                 <button class="text-ligth fw-bold btn btn-link text-decoration-underline p-0" onclick="showComment('{{ $comment->id }}')" style="font-size: .8em">Edit</button> 
-                                <button wire:click="destroy({{$comment->id}})" onclick="return confirm('Are you sure?')" class="fw-bold btn btn-link text-decoration-underline text-danger p-0" style="font-size: .8em;">Delete</button>
+                                <button onclick="return confirm('Your Comment Will Be Deleted')" wire:click="destroy({{$comment->id}})" class="fw-bold btn btn-link text-decoration-underline text-danger p-0" style="font-size: .8em;">Delete</button>
                             </span> </p>
                         </div>
                     @else
@@ -33,8 +33,8 @@
         <hr class="my-3">
         <div class="container ">
             <form class="row" wire:submit.prevent="sendText">
-                <input wire:model="commentText" type="text" class="col form-control" placeholder="your comment" />
-                <button onclick="scrollToTop()" class="col-2 mx-2 btn btn-secondary bg-primary text-light" type="submit"><i class="bi bi-send"></i></button>
+                <input wire:model="commentText" type="text" class="col form-control" placeholder="Share a Comment .." />
+                <button onclick="" class="col-2 mx-2 btn btn-secondary bg-primary text-light" type="submit"><i class="bi bi-send"></i></button>
             </form>
         </div>  
         @if (session('alert'))
@@ -43,15 +43,15 @@
     </div>
     <script>
         function showComment(cmtID){
-        document.querySelector("#cmt-txt-"+cmtID).setAttribute('class', 'd-none');
-        document.querySelector("#cmt-input-"+cmtID).value = document.querySelector("#cmt-txt-"+cmtID).innerHTML
-        document.querySelector("#form-"+cmtID).setAttribute('class', 'd-block');
+            document.querySelector("#cmt-txt-"+cmtID).setAttribute('class', 'd-none');
+            document.querySelector("#cmt-input-"+cmtID).value = document.querySelector("#cmt-txt-"+cmtID).innerHTML
+            document.querySelector("#form-"+cmtID).setAttribute('class', 'd-block');
         }
     </script>
-    <script>
+    {{-- <script>
         var element = document.querySelector('#comentScroll');
         function scrollToTop() {
             element.scrollTop = element.scrollHeight;;
         }
-    </script>
+    </script> --}}
 </div>
