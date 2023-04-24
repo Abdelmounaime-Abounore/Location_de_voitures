@@ -39,7 +39,7 @@ class RolesAndPermissionsSeeder extends Seeder
          Permission::create(['name' => 'form to reserve car']);
          Permission::create(['name' => 'view all reservations']);
          Permission::create(['name' => 'create reservations']);
-        //  Permission::create(['name' => 'view own reservations']);
+         Permission::create(['name' => 'view own reservations']);
          Permission::create(['name' => 'form to update reservation']);
          Permission::create(['name' => 'update or delete reservation']);
 
@@ -71,7 +71,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'update profile',
             'delete profile',
             'view cars',
-            'view all reservations',
+            // 'view own reservations',
             'form to reserve car',
             'create reservations',
             'form to update reservation',

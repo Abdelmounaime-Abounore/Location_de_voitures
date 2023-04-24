@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/reserve-car/{car_id}', [App\Http\Controllers\ReservationController::class, 'index'])->name('reserve car')->middleware(['permission:form to reserve car']);
     Route::post('/reseve-car', [App\Http\Controllers\ReservationController::class, 'store'])->name('car_reservation')->middleware(['permission:create reservations']);
-    Route::get('/car-reservation', [App\Http\Controllers\ReservationController::class, 'index2'])->name('Vue reseravtion')->middleware(['permission:view all reservations']);
+    Route::get('/car-reservation', [App\Http\Controllers\ReservationController::class, 'index2'])->name('Vue reseravtion');
     Route::get('/reservation/{id}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('update reservation vue')->middleware(['permission:form to update reservation']);
     Route::put('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'update'])->name('update reservation info')->middleware(['permission:update or delete reservation']);
     Route::delete('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('reservation destroy')->middleware(['permission:update or delete reservation']); 
