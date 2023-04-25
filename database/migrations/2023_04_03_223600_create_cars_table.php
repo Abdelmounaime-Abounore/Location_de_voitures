@@ -19,6 +19,7 @@ class CreateCarsTable extends Migration
             $table->integer('model');
             $table->string('description');
             $table->integer('price');
+            $table->boolean('is_reserved')->default(false);
             $table->timestamps();
         });
     }

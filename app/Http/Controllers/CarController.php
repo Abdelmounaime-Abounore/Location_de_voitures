@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Photo;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -16,6 +17,7 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::all();
+        $cars = Car::with('reservation')->get();
         return view('home', compact('cars'));
     }
 

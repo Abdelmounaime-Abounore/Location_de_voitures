@@ -67,6 +67,10 @@ class ReservationController extends Controller
         $reservation->user_id = $userId;
         $reservation->save();
 
+        $car = Car::find($carId);
+        $car->is_reserved = true;
+        $car->save();
+
         return redirect()->route('Vue reseravtion');
     }
 

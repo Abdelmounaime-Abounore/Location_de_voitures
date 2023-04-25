@@ -3,7 +3,7 @@
 
 @foreach($reservations as $reservation)
     @if(auth()->user()->name == $reservation->user->name)
-        <div class="row">
+        <div class="row w-100">
             <div class="col-md-6 m-auto">
                 <div class="w-100">
                     <div class="col my-4 opacity-75" style="height:420px">
@@ -42,7 +42,7 @@
     @endif   
 @endforeach    
 @if(Auth()->user()->can('view all reservations'))
-    <div class="row">
+    <div class="row w-100">
         @foreach($reservations as $reservation)
             <div class="col-md-6">
                 <div class="col my-4 opacity-75" style="height:420px">
@@ -95,6 +95,10 @@
 @endsection
 
 <style>
+
+html,body {
+    width: 100%;
+}
 body  {
     background-image: url(../images/reservation-bg.jpg);
     background-size: cover;

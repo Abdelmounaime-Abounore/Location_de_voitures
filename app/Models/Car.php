@@ -13,6 +13,11 @@ class Car extends Model
         return $this->hasMany(Photo::class);
     }
 
+    public function reservation()
+    {
+        return $this->hasOne(Reservation::class);
+    }
+
     use HasFactory;
     protected $fillable = [
         'brand',
