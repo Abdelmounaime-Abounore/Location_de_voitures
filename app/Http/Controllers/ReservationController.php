@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Models\Car;
+use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
@@ -42,37 +43,79 @@ class ReservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
+        $carId = $request->input('car_id');
         $validatedData = $request->validate([
             'user_mobile_number' => 'required|numeric|regex:/^[0-9]{10}$/',
-            'date_out' => 'required',
-            'date_back' => 'required',
+            'date_out' => 'required|date|after:yesterday',
+            'date_back' => 'required|date|after:date_out',
             'trip_description' => 'required|string'
         ]);
+        $newDateOut = $validatedData['date_out'];
+        $newDateBack = $validatedData['date_back'];
+        $reservations = Reservation::select('date_out', 'date_back')
+        ->where('car_id', $carId)
+        ->where('date_back', '>', Carbon::today())
+        ->get();
 
-        $carId = $request->input('car_id');
+        foreach($reservations as $reservation) {
+            if($newDateOut <= $reservation->date_back && $newDateBack >= $reservation->date_out) {
+                return back()->with('error', 'reservation failed');
+            }
+        }
+
         $userMobileNumber = $validatedData['user_mobile_number'];
-        $dateOut = $validatedData['date_out'];
-        $dateBack = $validatedData['date_back'];
+        // $dateOut = $validatedData['date_out'];
+        // $dateBack = $validatedData['date_back'];
         $tripDescription = $validatedData['trip_description'];
         $userId = auth()->user()->id;
 
         $reservation = new Reservation();
         $reservation->car_id = $carId;
         $reservation->user_mobile_number = $userMobileNumber;
-        $reservation->date_out = $dateOut;
-        $reservation->date_back = $dateBack;
+        $reservation->date_out = $newDateOut;
+        $reservation->date_back = $newDateBack;
         $reservation->trip_description = $tripDescription;
         $reservation->user_id = $userId;
         $reservation->save();
 
-        $car = Car::find($carId);
-        $car->is_reserved = true;
-        $car->save();
-
         return redirect()->route('Vue reseravtion');
     }
+     
+    // public function store(Request $request)
+    // {
+    //     $validatedData = $request->validate([
+    //         'user_mobile_number' => 'required|numeric|regex:/^[0-9]{10}$/',
+    //         'date_out' => 'required|date|after:yesterday',
+    //         'date_back' => 'required|date|after:date_out',
+    //         'trip_description' => 'required|string'
+    //     ]);
+
+    //     $carId = $request->input('car_id'); 
+
+    //     $userMobileNumber = $validatedData['user_mobile_number'];
+    //     $dateOut = $validatedData['date_out'];
+    //     $dateBack = $validatedData['date_back'];
+    //     $tripDescription = $validatedData['trip_description'];
+    //     $userId = auth()->user()->id;
+
+    //     $reservation = new Reservation();
+    //     $reservation->car_id = $carId;
+    //     $reservation->user_mobile_number = $userMobileNumber;
+    //     $reservation->date_out = $dateOut;
+    //     $reservation->date_back = $dateBack;
+    //     $reservation->trip_description = $tripDescription;
+    //     $reservation->user_id = $userId;
+    //     $reservation->save();
+
+    //     $car = Car::find($carId);
+    //     $car->is_reserved = true;
+    //     $car->save();
+
+    //     return redirect()->route('Vue reseravtion');
+    // }
 
     /**
      * Display the specified resource.

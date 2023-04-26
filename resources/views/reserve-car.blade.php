@@ -2,9 +2,16 @@
 @section('content')
 
 <div class="container my-5">
+    @if(Session::has('error'))
+        <div class="alert alert-danger">
+            {{Session::get('error')}}
+        </div>
+    @endif
+
     <h1 class="text-light text-center my-4 bg-info w-50 p-2 mx-3 rounded">Select Your Rental Period</h1>
     <form class="bg-light p-4 mx-3" method="POST" action="{{ route('car_reservation') }} "  style="border-radius:7px; opacity: 90%;">
         @csrf
+        <input type="hidden" name="car_id" value="{{ $car->id }}">
         <div class="row mb-3 my-3">
             <label for="mobile number" class="col-md-4 col-form-label text-md-end">{{ __('Mobile number') }}</label>
             <div class="col-md-6">
@@ -71,8 +78,6 @@
             </div>
         </div>
         
-        <input type="hidden" name="car_id" value="{{ $car->id }}">
-        
         <div class="row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary">
@@ -80,7 +85,6 @@
                 </button>
             </div>
         </div>
-
     </form>
     
 </div>
