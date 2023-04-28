@@ -14,9 +14,6 @@
             </p>
         </div>
         @livewire('comments', ['carId' => $car->id])
-        {{-- <div class="my-3">
-            <a href="{{route("home")}}" class="btn btn-secondary text-light">Go Back</a>
-        </div> --}}
     </div>
 </div>  
 @endsection

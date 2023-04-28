@@ -43,6 +43,10 @@ class RolesAndPermissionsSeeder extends Seeder
          Permission::create(['name' => 'form to update reservation']);
          Permission::create(['name' => 'update or delete reservation']);
 
+         Permission::create(['name' => 'delete comments']);
+
+         
+
 
 
           // Define roles available
@@ -62,6 +66,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'view all users',
             'delete users',
             'view all reservations',
+            'delete comments',
         ]);
 
 
