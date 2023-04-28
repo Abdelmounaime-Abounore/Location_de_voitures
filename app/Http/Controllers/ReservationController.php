@@ -62,7 +62,7 @@ class ReservationController extends Controller
 
         foreach($reservations as $reservation) {
             if($newDateOut <= $reservation->date_back && $newDateBack >= $reservation->date_out) {
-                return back()->with('error', 'reservation failed');
+                return back()->with('error', 'Your Reservation Overlaps With Another Existing R eservation');
             }
         }
 
