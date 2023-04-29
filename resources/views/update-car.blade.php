@@ -55,7 +55,7 @@
     <div class="row mb-3">
         <label for="photo1" class="col-md-4 col-form-label text-md-end">{{ __('Car photo (external image)') }}</label>
         <div class="col-md-6">
-            <input id="photo1" type="file" class="form-control @error('photo1') is-invalid @enderror" name="photo1" required autocomplete="photo1" autofocus>
+            <input id="photo1" type="file" class="form-control @error('photo1') is-invalid @enderror" name="photo1"  autofocus>
             @error('photo1')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
     <div class="row mb-3">
         <label for="photo2" class="col-md-4 col-form-label text-md-end">{{ __('Car photo (inside image)') }}</label>
         <div class="col-md-6">
-            <input id="photo2" type="file" class="form-control @error('photo2') is-invalid @enderror" name="photo2" required autocomplete="photo2" autofocus>
+            <input id="photo2" type="file" class="form-control @error('photo2') is-invalid @enderror" name="photo2"  autofocus>
             @error('photo2')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

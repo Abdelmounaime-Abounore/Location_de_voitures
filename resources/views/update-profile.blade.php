@@ -56,7 +56,7 @@
         <label for="driving_license_photo" class="col-md-4 col-form-label text-md-end">{{ __('Driving License Photo') }}</label>
     
         <div class="col-md-6">
-            <input id="driving_license_photo" type="file" class="form-control @error('driving_license_photo') is-invalid @enderror" name="driving_license_photo" value = "" required autocomplete="driving_license_photo" autofocus>
+            <input id="driving_license_photo" type="file" class="form-control @error('driving_license_photo') is-invalid @enderror" name="driving_license_photo" value = ""  autofocus>
     
             @error('driving_license_photo')
                 <span class="invalid-feedback" role="alert">

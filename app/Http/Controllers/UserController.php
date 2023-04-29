@@ -85,7 +85,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . Auth::user()->id,
             'password' => 'required|string|min:8|confirmed',
-            'driving_license_photo' => 'required|mimes:jpeg,png,jpg,svg',
+            'driving_license_photo' => 'mimes:jpeg,png,jpg,svg',
             'address' => 'required|string|max:255',
             'CIN' => 'required|string|max:6',
         ]);
@@ -96,9 +96,11 @@ class UserController extends Controller
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
 
-        $imgName = $request['driving_license_photo']->getClientOriginalName();
-        $request['driving_license_photo']->move(public_path('driving_license_photos'), $imgName);
-        $user->driving_license_photo = $imgName;
+        if($request->file('driving_license_photo')) {
+            $imgName = $request['driving_license_photo']->getClientOriginalName();
+            $request['driving_license_photo']->move(public_path('driving_license_photos'), $imgName);
+            $user->driving_license_photo = $imgName;
+        }
 
         $user->address = $validatedData['address'];
         $user->CIN = $validatedData['CIN'];

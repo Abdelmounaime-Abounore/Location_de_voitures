@@ -46,11 +46,11 @@ class CarController extends Controller
     {
         $validatedData = $request->validate([
             'brand' => 'required|string|max:255',
-            'model' => 'required|integer',
+            'model' => 'required|integer|min:2016',
             'description' => 'required|string|max:255',
-            'price' => 'required|integer',
-            'photo1' => 'required',
-            'photo2' => 'required'
+            'price' => 'required|integer|min:0',
+            'photo1' => 'required|mimes:jpeg,png,jpg,svg',
+            'photo2' => 'required|mimes:jpeg,png,jpg,svg'
         ]);
     
         $img1Name = time().'.'. $validatedData['photo1']->getClientOriginalName();
@@ -113,11 +113,11 @@ class CarController extends Controller
     {
         $validatedData = $request->validate([
             'brand' => 'required|string|max:255',
-            'model' => 'required|integer|min:1',
+            'model' => 'required|integer|min:2015',
             'description' => 'required|string|max:255',
             'price' => 'required|integer|min:1',
-            'photo1' => 'required|mimes:jpeg,png,jpg,svg',
-            'photo2' => 'required|mimes:jpeg,png,jpg,svg',
+            'photo1' => 'mimes:jpeg,png,jpg,svg',
+            'photo2' => 'mimes:jpeg,png,jpg,svg',
         ]);
 
         $car = Car::find($id);
@@ -130,17 +130,21 @@ class CarController extends Controller
 
         $photos = $car->photos;
 
-        $img1Name = time().'.'. $validatedData['photo1']->getClientOriginalName();
-        $validatedData['photo1']->move(public_path('car-photos'), $img1Name);
-        $photos[0]->name = $img1Name;
-        $photos[0]->car_id = $car->id;
-        $photos[0]->save();
+        if ($request->file('photo1')) {
+            $img1Name = time().'.'. $validatedData['photo1']->getClientOriginalName();
+            $validatedData['photo1']->move(public_path('car-photos'), $img1Name);
+            $photos[0]->name = $img1Name;
+            $photos[0]->car_id = $car->id;
+            $photos[0]->save();
+        }
 
-        $img2Name = time().'.'. $validatedData['photo2']->getClientOriginalName();
-        $validatedData['photo2']->move(public_path('car-photos'), $img2Name);
-        $photos[1]->name = $img2Name;
-        $photos[1]->car_id = $car->id;
-        $photos[1]->save();
+        if ($request->file('photo2')) {
+            $img2Name = time().'.'. $validatedData['photo2']->getClientOriginalName();
+            $validatedData['photo2']->move(public_path('car-photos'), $img2Name);
+            $photos[1]->name = $img2Name;
+            $photos[1]->car_id = $car->id;
+            $photos[1]->save();
+        }
 
         return redirect()->route('home');
     }

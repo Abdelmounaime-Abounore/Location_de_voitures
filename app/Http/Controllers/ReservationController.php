@@ -51,7 +51,7 @@ class ReservationController extends Controller
             'user_mobile_number' => 'required|numeric|regex:/^[0-9]{10}$/',
             'date_out' => 'required|date|after:yesterday',
             'date_back' => 'required|date|after:date_out',
-            'trip_description' => 'required|string'
+            'trip_description' => 'required|string|max:255'
         ]);
         $newDateOut = $validatedData['date_out'];
         $newDateBack = $validatedData['date_back'];
@@ -152,9 +152,9 @@ class ReservationController extends Controller
     {
         $validatedData = $request->validate([
             'user_mobile_number' => 'required|numeric|regex:/^[0-9]{10}$/',
-            'date_out' => 'required',
-            'date_back' => 'required',
-            'trip_description' => 'required|string'
+            'date_out' => 'required|date|after:yesterday',
+            'date_back' => 'required|date|after:date_out',
+            'trip_description' => 'required|string|max:255'
         ]);
 
         $reservation = Reservation::find($id);

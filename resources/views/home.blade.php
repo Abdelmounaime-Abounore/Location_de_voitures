@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-  <h3 class="text-center text-light w-100 my-5 m-auto p-3 fw-bold">Welcome To <span class="text-primary">Castilla Rent Car</span>, Browse our offers and find what suits you best</h3>
+  @if(Auth()->user()->can('add cars'))
+    <h3 class="text-center text-light w-100 my-5 m-auto p-3 fw-bold">Welcome To <span class="text-primary">Castilla Rent Car</span>, Browse Your offers and Add More Cars</h3>
+  @elseif(Auth()->user()->can('create reservations'))
+    <h3 class="text-center text-light w-100 my-5 m-auto p-3 fw-bold">Welcome To <span class="text-primary">Castilla Rent Car</span>, Browse Our Offers And Find What Suits You Best</h3>
+  @endif
   <div class="row row-cols-1 row-cols-lg-2 g-3">
       @foreach ($cars as $car)
           <div class="col p-2" style="height:370px">
