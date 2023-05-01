@@ -8,7 +8,7 @@
   @endif
   <div class="row row-cols-1 row-cols-lg-2 g-3">
       @foreach ($cars as $car)
-          <div class="col p-2" style="height:370px">
+          <div class="col p-2" style="">
             <div class="card bg-light m-1 p-3 h-100">
               <div class="w-100 justify-content-around d-flex p-2">
                 @foreach ($car->photos as $photo)
@@ -20,7 +20,9 @@
                   <p class="text-danger fw-bold"> Price: {{$car->price}} MAD/ Day</p>
               </div>
               @if ($car->reservation)
-                  <p>This car is reserved from <span class="text-danger"> {{$car->reservation->date_out}} </span> to <span class="text-danger"> {{$car->reservation->date_back}}</span> </p>
+                @foreach($car->reservation as $reservation)
+                  <p>This car is reserved from <span class="text-danger"> {{$reservation->date_out}} </span> to <span class="text-danger"> {{$reservation->date_back}}</span> </p>
+                @endforeach
               @endif
               <div class="d-flex justify-content-between">
                 <div class="d-flex justify-content-between w-25" style="height: 37px">
@@ -28,7 +30,7 @@
                     <form id="delete-form" action="{{route('cars destroy', $car->id)}}" method="POST">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-danger mx-2" id="delete-car">Delete</button>
+                      <button id="delete-car" type="submit" class="btn btn-danger mx-2">Delete</button>
                     </form>
                     <a href="{{route('update car vue', $car->id )}}" class="btn btn-primary">Update</a>
                   @endif
@@ -53,17 +55,17 @@
   @endif
 
 </div>  
-{{-- <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-      let deleteButton = document.getElementById("delete-car");
-      deleteButton.addEventListener("click", function(event){
-          event.preventDefault(); // Prevent the form from submitting
-          if (confirm("Are you sure you want to delete this car?")) {
-              document.getElementById("delete-form").submit(); // Submit the form
-          }
-      });
+
+<script>
+  let deleteButton = document.getElementById("delete-car");
+  deleteButton.addEventListener("click", function(event){
+      event.preventDefault();
+      if (confirm("Are you sure you want delete this car")) {
+          document.getElementById("delete-form").submit(); 
+      }
   });
-</script> --}}
+</script>
+
 @endsection
 
 <style>

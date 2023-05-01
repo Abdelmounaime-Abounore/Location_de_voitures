@@ -75,7 +75,6 @@
         </style>
     </head>
     <body class="antialiased">
-        {{-- <div class="flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0" style="height: 10px"> --}}
         <div class="d-flex justify-content-between" style="width: 95%; margin:auto;">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <div class="div-img">
@@ -140,10 +139,10 @@
             <div class="bg-primary p-2" style="margin-bottom: 20px; opacity:50%; border-radius: 7px">
                 <h2>Create Your Account, and Rent your best Car</h2>
             </div>
-                <div>
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-white-500 text-decoration-none p-2 register-link">Register</a>
-                </div>
-            @endif
+            <div>
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-white-500 text-decoration-none p-2 register-link">Register</a>
+            </div>
         </div>
+        @endif
     </body>
 </html>

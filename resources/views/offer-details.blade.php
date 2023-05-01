@@ -38,7 +38,6 @@ nav {
 .card {
   opacity: 85%;
 }
-
 .card img {
   width: 40%;
   border-radius: 10px;

@@ -43,7 +43,7 @@
     <div class="container">
         <form class="row" wire:submit.prevent="sendText">
             <input wire:model="commentText" type="text" class="col form-control" placeholder="Sahre With a Comment .." />
-            <button onclick="scrollToTop()" class="col-2 ms-2 btn btn-dark bg-primary text-light" type="submit"><i class="bi bi-send"></i></button>
+            <button class="col-2 ms-2 btn btn-dark bg-primary text-light" type="submit"><i class="bi bi-send"></i></button>
         </form>
     </div>  
     @if (session('alert'))
@@ -64,12 +64,6 @@
             document.querySelector("#cmt-txt-"+cmtID).setAttribute('class', 'd-none');
             document.querySelector("#cmt-input-"+cmtID).value = document.querySelector("#cmt-txt-"+cmtID).innerHTML
             document.querySelector("#form-"+cmtID).setAttribute('class', 'd-block');
-        }
-    </script>
-    <script>
-        var element = document.querySelector('#comentScroll');
-        function scrollToTop() {
-            element.scrollTop = element.scrollHeight;;
         }
     </script>
 </div>

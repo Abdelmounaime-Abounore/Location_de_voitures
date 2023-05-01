@@ -29,36 +29,15 @@
         </div>
     </div>
 
-    
-    <!-- Delete modal -->
-
-    {{-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete Profile Confirmation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete your profile?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" form="delete-form" class="btn btn-danger">Delete</button>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-    {{-- <script>
-        const deleteButton = document.getElementById('delete-profile');
-        const deleteModal = document.getElementById('deleteModal');
-        deleteButton.addEventListener('click', () => {
-            deleteModal.addEventListener('shown.bs.modal', () => {
-                document.activeElement.blur();
-            });
-    });
-      </script> --}}
+    <script>
+        let deleteButton = document.getElementById("delete-profile");
+        deleteButton.addEventListener("click", function(event){
+            event.preventDefault();
+            if (confirm("Are you sure you want delete your Profile")) {
+                document.getElementById("delete-form").submit(); 
+            }
+        });
+    </script>
 
     <style>
         body  {

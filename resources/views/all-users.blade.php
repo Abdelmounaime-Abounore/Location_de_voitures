@@ -38,7 +38,6 @@
         </table>
     </div>
     <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
             let deleteButton = document.getElementById("delete-user");
             deleteButton.addEventListener("click", function(event){
                 event.preventDefault(); 
@@ -46,14 +45,11 @@
                     document.getElementById("delete-form").submit(); 
                 }
             });
-        });
       </script>
 @endsection
 <style>
 
 body {
-
-    /* background-image: url(../images/users-bg.jpg); */
     background-color: none;
     background: rgb(238, 236, 236) !important;
 }
